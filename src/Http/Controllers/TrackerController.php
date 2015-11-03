@@ -1,6 +1,5 @@
 <?php namespace FrenchFrogs\Tracker;
 
-
 use Carbon\Carbon;
 use Illuminate\Routing\Controller;
 use Request;
