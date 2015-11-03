@@ -6,7 +6,7 @@ use Models\Db\Tracking\Tracking as ModelTracking;
 use Models\Db\Tracking\TrackingLog;
 use Request;
 
-class Tracking
+class Tracking extends Business
 {
     const HASH_MAIL_DEFAULT = 'KsJsRZP9IF';
     const MAIL_ID = "internal_mail_id";
