@@ -1,5 +1,6 @@
 <?php namespace FrenchFrogs\Tracker;
 
+use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 
 class TrackerServiceProvider extends ServiceProvider
@@ -12,7 +13,7 @@ class TrackerServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../database/migrations/' => database_path('migrations')
+            __DIR__.'/../database/migrations/create_tracking_table.php' => database_path('migrations/' . Carbon::now()->format('Y_m_d_His') . '_create_tracking_table.php'),
         ], 'migrations');
     }
 
