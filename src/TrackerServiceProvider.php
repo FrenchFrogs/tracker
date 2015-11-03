@@ -11,7 +11,9 @@ class TrackerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes([
+            __DIR__.'/../database/migrations/' => database_path('migrations')
+        ], 'migrations');
     }
 
     /**
@@ -22,6 +24,5 @@ class TrackerServiceProvider extends ServiceProvider
     public function register()
     {
         include __DIR__.'/Http/routes.php';
-        $this->app->make('FrenchFrogs\Tracker\TrackerController');
     }
 }
