@@ -21,7 +21,7 @@ class TrackerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        include __DIR__.'/routes.php';
-        $this->app->make('FrenchFrogs\Tracker\TrackerController');
+        include __DIR__.'Http/routes.php';
+        $this->app->make('FrenchFrogs\Tracker\Http\Controllers\TrackerController');
     }
 }
