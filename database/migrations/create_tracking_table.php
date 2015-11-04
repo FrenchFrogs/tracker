@@ -22,7 +22,7 @@ class CreateTrackingTable extends Migration
          */
         Schema::create('tracking', function(Blueprint $table){
 
-            $table->binaryUuid('tracking_id');
+            $table->binaryUuid('tracking_id')->primary();
             $table->string('name', 128);
             $table->string('tracking_hash', 15)->unique();
             $table->boolean('is_active')->default(0);
@@ -35,8 +35,8 @@ class CreateTrackingTable extends Migration
          */
         Schema::create('tracking_log', function(Blueprint $table){
 
-            $table->binaryUuid('tracking_log_id');
-            $table->integer('tracking_id')->unsigned();
+            $table->binaryUuid('tracking_log_id')->primary();
+            $table->binaryUuid('tracking_id');
             $table->text('tracking_data')->nullable();
             $table->string('ip', 32)->nullable();
             $table->text('browser')->nullable();
