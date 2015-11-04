@@ -1,3 +1,3 @@
 <?php
 
-Route::get('/pixel', 'frenchfrogs\tracker\TrackerController@tracking')->name('tracking');
+Route::get('/pixel', 'TrackerController@tracking')->name('tracking');
