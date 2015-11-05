@@ -7,7 +7,15 @@
             "type": "git",
             "reference": "origin/master"
     },
+    "homepage": "https://github.com/FrenchFrogs/tracker",
+    "licence": "GPL-3.0+",
     "authors": [
+        {
+            "name": "Julien Houvion",
+            "email": "cotcotquedec@gmail.com",
+            "homepage": "https://github.com/cotcotquedec",
+            "role": "Project Manager"
+        },
         {
             "name": "B4CKSL4SH",
             "email": "fabien.devienne@wengo.com"
@@ -21,5 +29,6 @@
             "FrenchFrogs\\Tracker\\": "src/",
             "FrenchFrogs\\Models\\" : "src/Models"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
