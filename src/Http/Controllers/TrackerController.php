@@ -4,7 +4,7 @@ use Carbon\Carbon;
 use Illuminate\Routing\Controller;
 use Request;
 use Models\Business\Tracking;
-use Models\Business\Mail;
+use FrenchFrogs\Models\Business\Mail;
 
 class TrackerController extends Controller
 {
