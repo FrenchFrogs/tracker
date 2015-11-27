@@ -1,8 +1,8 @@
 <?php namespace Models\Db\Tracking;
 
-use Illuminate\Database\Eloquent\Model;
+use FrenchFrogs\Laravel\Database\Eloquent\Model;
 
-class TrackingLog extends Model
+class Log extends Model
 {
     protected $primaryKey  = 'tracking_log_id';
 
@@ -13,6 +13,8 @@ class TrackingLog extends Model
      */
     protected $table = 'tracking_log';
 
+    public $uuid = true;
+
     /**
      * Indicates if the model should be timestamped.
      *
@@ -21,7 +23,7 @@ class TrackingLog extends Model
     public $timestamps = false;
 
     public function tracking()
-    {
+
         return $this->belongsTo(Tracking::class);
     }
 }

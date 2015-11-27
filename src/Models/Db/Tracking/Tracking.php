@@ -1,6 +1,6 @@
 <?php namespace Models\Db\Tracking;
 
-use Illuminate\Database\Eloquent\Model;
+use FrenchFrogs\Laravel\Database\Eloquent\Model;
 
 class Tracking extends Model
 {
@@ -12,6 +12,8 @@ class Tracking extends Model
      * @var string
      */
     protected $table = 'tracking';
+
+    public $uuid = true;
 
     /**
      * Indicates if the model should be timestamped.
