@@ -1,4 +1,4 @@
-<?php namespace Models\Db\Tracking;
+<?php namespace FrenchFrogs\Models\Db\Tracking;
 
 use FrenchFrogs\Laravel\Database\Eloquent\Model;
 
@@ -24,7 +24,7 @@ class Tracking extends Model
 
     public function logs()
     {
-        return $this->hasMany(TrackingLog::class, 'tracking_id', 'tracking_id');
+        return $this->hasMany(Log::class, 'tracking_id', 'tracking_id');
     }
 
     /**

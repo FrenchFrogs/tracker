@@ -1,4 +1,4 @@
-<?php namespace Models\Db\Tracking;
+<?php namespace FrenchFrogs\Models\Db\Tracking;
 
 use FrenchFrogs\Laravel\Database\Eloquent\Model;
 

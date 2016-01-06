@@ -1,9 +1,9 @@
-<?php namespace FrenchFrogs\Tracker;
+<?php namespace FrenchFrogs\Tracker\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Routing\Controller;
 use Request;
-use Models\Business\Tracking;
+use FrenchFrogs\Models\Business\Tracking;
 use FrenchFrogs\Models\Business\Mail;
 
 class TrackerController extends Controller
@@ -24,11 +24,14 @@ class TrackerController extends Controller
 
         // if we have a mail_id, we update the mail status and the date where it is opened
         if (Request::has(Tracking::MAIL_ID)) {
-            if (Mail::exists(Request::input(Tracking::MAIL_ID))) {
-                $mail = Mail::getById(Request::input(Tracking::MAIL_ID));
-                $mail->mail_status_id = Mail::STATUS_OPENED;
-                $mail->opened_at = Carbon::now();
-                $mail->save();
+            if (Mail::exists(uuid('bytes', Request::input(Tracking::MAIL_ID)))) {
+                $mail = Mail::getById(uuid('bytes', Request::input(Tracking::MAIL_ID)));
+
+                if ($mail->mail_status_id != Mail::STATUS_OPENED) {
+                    $mail->mail_status_id = Mail::STATUS_OPENED;
+                    $mail->opened_at = Carbon::now();
+                    $mail->save();
+                }
             }
         }
 

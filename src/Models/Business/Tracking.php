@@ -1,46 +1,48 @@
-<?php namespace Models\Business;
+<?php namespace FrenchFrogs\Models\Business;
 
 use Carbon\Carbon;
 use Agent;
-use Models\Db\Tracking\Tracking as ModelTracking;
-use Models\Db\Tracking\TrackingLog;
+use FrenchFrogs\Business\Business;
+use FrenchFrogs\Models\Db\Tracking\Tracking as ModelTracking;
+use FrenchFrogs\Models\Db\Tracking\Log as TrackingLog;
 use Request;
 
 class Tracking extends Business
 {
     const HASH_MAIL_DEFAULT = 'KsJsRZP9IF';
     const MAIL_ID = "internal_mail_id";
+    static protected $modelClass = ModelTracking::class;
 
     /**
      * Get
      *
      * @param $hash
-     * @return \Models\Db\Tracking\Tracking
+     * @return ModelTracking
      */
     public static function getByHash($hash)
     {
-        return modelTracking::where('tracking_hash', '=', $hash)->firstOrFail();
+        return ModelTracking::where('tracking_hash', '=', $hash)->firstOrFail();
     }
 
     /**
      * Create a new tracking
      *
      * @param array $data
-     * @return \Models\Db\Tracking\Tracking
+     * @return $this
      */
     public static function create(array $data)
     {
         $data['tracking_hash'] = ModelTracking::generateHash();
         $data['created_at'] = Carbon::now();
 
-        return ModelTracking::create($data);
+        return parent::create($data);
     }
 
     /**
      * Create new log
      *
      * @param $data
-     * @return \Models\Db\Tracking\TrackingLog
+     * @return TrackingLog
      */
     public static function log($data)
     {
